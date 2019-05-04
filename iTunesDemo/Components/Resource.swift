@@ -31,7 +31,7 @@ extension Resource
   public func toRequest(baseURL: URL) -> URLRequest {
     var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)
     components?.path = path
-    let finalURL = components?.url ?? baseURL
+    let finalURL = components?.url ?? URL(string: "\(baseURL)\(path)")!
     var request = URLRequest(url: finalURL)
     request.httpMethod = method.rawValue
     return request

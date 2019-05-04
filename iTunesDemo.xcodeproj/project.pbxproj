@@ -24,6 +24,7 @@
 		938BB506227DD52600DEB4F5 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB505227DD52600DEB4F5 /* Resource.swift */; };
 		938BB509227DE47000DEB4F5 /* Tracklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB508227DE47000DEB4F5 /* Tracklist.swift */; };
 		938BB50C227DFF2400DEB4F5 /* TrackListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB50B227DFF2400DEB4F5 /* TrackListCell.swift */; };
+		938BB50F227E0B2B00DEB4F5 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB50E227E0B2B00DEB4F5 /* String+extensions.swift */; };
 		93D41E20227DCB01002022F0 /* TrackListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E1F227DCB01002022F0 /* TrackListFactory.swift */; };
 		93D41E22227DCB1E002022F0 /* TrackListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E21227DCB1E002022F0 /* TrackListController.swift */; };
 		93D41E24227DCB77002022F0 /* TrackListBoundaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D41E23227DCB77002022F0 /* TrackListBoundaries.swift */; };
@@ -75,6 +76,7 @@
 		938BB505227DD52600DEB4F5 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		938BB508227DE47000DEB4F5 /* Tracklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracklist.swift; sourceTree = "<group>"; };
 		938BB50B227DFF2400DEB4F5 /* TrackListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListCell.swift; sourceTree = "<group>"; };
+		938BB50E227E0B2B00DEB4F5 /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
 		93D41E1F227DCB01002022F0 /* TrackListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListFactory.swift; sourceTree = "<group>"; };
 		93D41E21227DCB1E002022F0 /* TrackListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListController.swift; sourceTree = "<group>"; };
 		93D41E23227DCB77002022F0 /* TrackListBoundaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListBoundaries.swift; sourceTree = "<group>"; };
@@ -236,9 +238,18 @@
 			path = "UI Components";
 			sourceTree = "<group>";
 		};
+		938BB50D227E0B1500DEB4F5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				938BB50E227E0B2B00DEB4F5 /* String+extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		93D41E25227DCDB2002022F0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				938BB50D227E0B1500DEB4F5 /* Extensions */,
 				93D41E26227DCDC6002022F0 /* Network.swift */,
 				938BB505227DD52600DEB4F5 /* Resource.swift */,
 				938BB501227DD46700DEB4F5 /* Result.swift */,
@@ -498,6 +509,7 @@
 				320E43F5226CD98B0089AC54 /* AuthenticationController.swift in Sources */,
 				320E43F1226CC9A60089AC54 /* AuthenticationViewController.swift in Sources */,
 				320E43BF226CBCB20089AC54 /* AppDelegate.swift in Sources */,
+				938BB50F227E0B2B00DEB4F5 /* String+extensions.swift in Sources */,
 				93D41E20227DCB01002022F0 /* TrackListFactory.swift in Sources */,
 				938BB504227DD46F00DEB4F5 /* Error.swift in Sources */,
 				93D41E22227DCB1E002022F0 /* TrackListController.swift in Sources */,

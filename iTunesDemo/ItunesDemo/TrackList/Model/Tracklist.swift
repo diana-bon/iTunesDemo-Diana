@@ -21,4 +21,16 @@ struct TrackListModel: Codable
 {
   let resultCount: Int
   let results: [TrackModel]
+  
+  // For testing purpose.
+  init() {
+    let tracks = [
+      TrackModel(artistId: "0", artistName: "Bob dylan", trackName: "Blabla", collectionName: "blalabla", artworkUrl100: "URL"),
+      TrackModel(artistId: "1", artistName: "Bob dylan1", trackName: "Blablaaa", collectionName: "blalabla", artworkUrl100: "URL"),
+      TrackModel(artistId: "2", artistName: "Bob dylan2", trackName: "Blablaaaa", collectionName: "blalabla", artworkUrl100: "URL")
+    ]
+    
+    self.resultCount = tracks.count
+    self.results = tracks
+  }
 }

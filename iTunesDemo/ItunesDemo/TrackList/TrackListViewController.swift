@@ -34,7 +34,10 @@ extension TrackListViewController: TrackListControllerOutput
   func displayTrackList(trackModel: TrackListModel) {
     trackCount = trackModel.resultCount
     trackList = trackModel.results
-    tableView?.reloadData()
+    
+    DispatchQueue.main.async {
+      self.tableView?.reloadData()
+    }
   }
   
   func displayError(message: String) {
