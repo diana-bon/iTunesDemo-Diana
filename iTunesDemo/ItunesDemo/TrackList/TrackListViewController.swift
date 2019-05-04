@@ -43,16 +43,15 @@ extension TrackListViewController: TrackListControllerOutput
   func displayError(message: String) {
     print(message)
   }
-  
-  private func downloadImage(_ image: String?) -> UIImage {
-    // TODO: Download image
-    return UIImage()
-  }
 }
 
 // MARK: - Tableview delegate & datasource
 extension TrackListViewController: UITableViewDataSource
 {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 65
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return trackCount
   }
@@ -62,9 +61,10 @@ extension TrackListViewController: UITableViewDataSource
     
     let model = trackList?[indexPath.row]
     
-    cell.artistName = model?.artistName
-    cell.trackName = model?.trackName
-    cell.artistImage = downloadImage(model?.artworkUrl100)
+    cell.titleStr = model?.trackName ?? "-"
+    let description = "\(model?.artistName ?? "-") - \(model?.collectionName ?? "-")"
+    cell.descriptionStr = description
+    cell.trackImage = model?.artworkUrl100
 
     return cell
   }
@@ -75,17 +75,16 @@ extension TrackListViewController: UITableViewDelegate
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     // TODO
   }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    searchBar?.resignFirstResponder()
+  }
 }
 
 // MARK: - Searchbar delegate
 extension TrackListViewController: UISearchBarDelegate
 {
-  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    guard let text = searchBar.text else { return }
-    controller?.findTrackList(with: text)
-  }
-  
-  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-    tableView?.reloadData()
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    controller?.findTrackList(with: searchText)
   }
 }

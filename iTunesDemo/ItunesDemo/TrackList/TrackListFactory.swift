@@ -11,7 +11,8 @@ import Foundation
 enum TrackListFactory
 {
   static func createTrackListModule(view: TrackListControllerOutput) -> TrackListControllerInput {
-    let controller = TrackListController(view: view)
+    let adapter = TrackListAdapter()
+    let controller = TrackListController(adapter: adapter, view: view)
     return controller
   }
 }

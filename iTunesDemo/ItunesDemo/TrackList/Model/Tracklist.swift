@@ -10,27 +10,32 @@ import Foundation
 
 struct TrackModel: Codable
 {
-  let artistId: String
-  let artistName: String
-  let trackName: String
-  let collectionName: String
-  let artworkUrl100: String
+  let artistId: Int?
+  let trackId: Int?
+  let artistName: String?
+  let trackName: String?
+  let collectionName: String?
+  let artworkUrl100: String?
+  
+  init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    artistId = try container.decodeIfPresent(Int.self, forKey: .artistId)
+    trackId = try container.decodeIfPresent(Int.self, forKey: .trackId)
+    artistName = try container.decodeIfPresent(String.self, forKey: .artistName)
+    trackName = try container.decodeIfPresent(String.self, forKey: .trackName)
+    collectionName = try container.decodeIfPresent(String.self, forKey: .collectionName)
+    artworkUrl100 = try container.decodeIfPresent(String.self, forKey: .artworkUrl100)
+  }
 }
 
 struct TrackListModel: Codable
 {
   let resultCount: Int
-  let results: [TrackModel]
+  var results: [TrackModel] = []
   
-  // For testing purpose.
-  init() {
-    let tracks = [
-      TrackModel(artistId: "0", artistName: "Bob dylan", trackName: "Blabla", collectionName: "blalabla", artworkUrl100: "URL"),
-      TrackModel(artistId: "1", artistName: "Bob dylan1", trackName: "Blablaaa", collectionName: "blalabla", artworkUrl100: "URL"),
-      TrackModel(artistId: "2", artistName: "Bob dylan2", trackName: "Blablaaaa", collectionName: "blalabla", artworkUrl100: "URL")
-    ]
-    
-    self.resultCount = tracks.count
-    self.results = tracks
+  init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    resultCount = try container.decode(Int.self, forKey: .resultCount)
+    results = try container.decode([TrackModel].self, forKey: .results)
   }
 }

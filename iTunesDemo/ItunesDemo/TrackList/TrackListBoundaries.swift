@@ -10,11 +10,18 @@ import Foundation
 
 protocol TrackListControllerInput
 {
-  func findTrackList(with artist: String)
+  func findTrackList(with text: String)
 }
 
 protocol TrackListControllerOutput
 {
   func displayTrackList(trackModel: TrackListModel)
   func displayError(message: String)
+}
+
+typealias TrackListResult = (Result<TrackListModel, Error>) -> Void
+
+protocol TracklistAdapting
+{
+  func fetchTracklist(with text: String, completion: @escaping TrackListResult)
 }
