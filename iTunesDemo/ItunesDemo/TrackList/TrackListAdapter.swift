@@ -37,12 +37,11 @@ extension TrackListAdapter: TracklistAdapting
     session.request(resource: resource) { result in
       switch result {
       case .success(let data):
-        if let jsonData = data.data(using: .utf8) {
-          let decoder = JSONDecoder()
-          let trackList = try! decoder.decode(TrackListModel.self, from: jsonData)
+        let decoder = JSONDecoder()
+        if let jsonData = data.data(using: .utf8), let trackList = try? decoder.decode(TrackListModel.self, from: jsonData) {
           completion(.success(trackList))
         } else {
-          completion(.failure(.network))
+          completion(.failure(.parsing))
         }
       case .failure(let error):
         completion(.failure(error))

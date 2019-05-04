@@ -14,7 +14,7 @@ class TrackListViewController: UIViewController
   var controller: TrackListControllerInput?
   
   var trackList: [TrackModel]?
-  var trackCount: Int = 0
+  var trackCount: Int?
   
   // MARK: - Outlets
   @IBOutlet private weak var searchBar: UISearchBar?
@@ -53,13 +53,13 @@ extension TrackListViewController: UITableViewDataSource
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return trackCount
+    return trackCount ?? trackList?.count ?? 0
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "TrackListCell") as? TrackListCell else { return UITableViewCell() }
     
-    let model = trackList?[indexPath.row]
+    let model = trackList?[safe: indexPath.row]
     
     cell.titleStr = model?.trackName ?? "-"
     let description = "\(model?.artistName ?? "-") - \(model?.collectionName ?? "-")"
