@@ -11,25 +11,27 @@ import UIKit
 
 class TrackListCell: UITableViewCell
 {
-  @IBOutlet private weak var artistImageView: UIImageView?
-  @IBOutlet private weak var artistNameLabel: UILabel?
-  @IBOutlet private weak var trackNameLabel: UILabel?
+  @IBOutlet private weak var trackImageView: UIImageView?
+  @IBOutlet private weak var titleLabel: UILabel?
+  @IBOutlet private weak var descriptionLabel: UILabel?
   
-  var artistName: String? {
+  var titleStr: String? {
     didSet {
-      artistNameLabel?.text = artistName
+      titleLabel?.text = titleStr
     }
   }
   
-  var trackName: String? {
+  var descriptionStr: String? {
     didSet {
-      trackNameLabel?.text = trackName
+      descriptionLabel?.text = descriptionStr
     }
   }
   
-  var artistImage: UIImage? {
+  var trackImage: String? {
     didSet {
-      artistImageView?.image = artistImage
+      if let url = trackImage {
+        trackImageView?.imageFromServerURL(URL(string: url), placeHolder: UIImage(named: "defaultIcon"))
+      }
     }
   }
 }

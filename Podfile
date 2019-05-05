@@ -10,6 +10,7 @@ target 'iTunesDemo' do
 	pod 'Firebase'
 	pod 'Alamofire'
 	pod 'Firebase/Auth'
+  
 
 
   target 'iTunesDemoTests' do

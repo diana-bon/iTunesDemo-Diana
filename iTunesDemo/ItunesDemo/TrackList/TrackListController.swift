@@ -11,43 +11,28 @@ import Foundation
 class TrackListController
 {
   var view: TrackListControllerOutput
-  var session: Network
+  var adapter: TracklistAdapting
   
-  enum Path
+  enum ErrorMessage
   {
-    case base
-    case trackList
-
-    var url: String {
-      switch self {
-      case .base: return "https://itunes.apple.com/"
-      case .trackList: return "search?term="
-      }
-    }
+    static var network = "The tracklist couldnt be fetched."
   }
   
-  init(view: TrackListControllerOutput) {
+  init(adapter: TracklistAdapting, view: TrackListControllerOutput) {
     self.view = view
-    self.session = Network(baseURL: URL(string: Path.base.url)!)
+    self.adapter = adapter
   }
 }
 
 extension TrackListController: TrackListControllerInput
 {
-  func findTrackList(with artist: String) {
-    let url = "\(Path.trackList.url)\(artist)"
-    let resource = Resource.init(path: url.toURLString(), method: .GET)
-    
-    session.request(resource: resource) { [weak self] result in
-      guard let self = self else { return }
+  func findTrackList(with text: String) {
+    adapter.fetchTracklist(with: text) { [weak self] result in
       switch result {
-      case .success(let data):
-        let tracklist = TrackListModel()
-//        let decoder = JSONDecoder()
-//        let trackList = try! decoder.decode(TrackListModel.self, from: data)
-        self.view.displayTrackList(trackModel: tracklist)
+      case .success(let tracklist):
+        self?.view.displayTrackList(trackModel: tracklist)
       case .failure(let error):
-        self.view.displayError(message: error.localizedDescription)
+        self?.view.displayError(message: error.description)
       }
     }
   }

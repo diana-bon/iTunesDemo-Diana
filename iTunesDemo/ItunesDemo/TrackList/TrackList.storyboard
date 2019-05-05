@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Uq9-St-ZiS">
+                            <searchBar contentMode="redraw" placeholder="Search tracks" translatesAutoresizingMaskIntoConstraints="NO" id="Uq9-St-ZiS">
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -28,34 +28,34 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrackListCell" rowHeight="80" id="oQz-uo-qSK" customClass="TrackListCell" customModule="iTunesDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrackListCell" rowHeight="65" id="oQz-uo-qSK" customClass="TrackListCell" customModule="iTunesDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oQz-uo-qSK" id="crd-ZN-5e5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="QhL-a8-HfZ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="79.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K5i-3R-gZx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="79.5" height="79.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="64.5" height="64.5"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="K5i-3R-gZx" secondAttribute="height" multiplier="1:1" id="rNO-xi-VvJ"/>
+                                                                <constraint firstAttribute="width" secondItem="K5i-3R-gZx" secondAttribute="height" multiplier="1:1" id="cOg-F9-OQf"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="bfn-mt-rPl">
-                                                            <rect key="frame" x="91.5" y="0.0" width="322.5" height="79.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfn-mt-rPl">
+                                                            <rect key="frame" x="76.5" y="0.0" width="337.5" height="64.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWh-rB-WFo">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="322.5" height="40"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWh-rB-WFo">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="337.5" height="42"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUK-an-G8u">
-                                                                    <rect key="frame" x="0.0" y="40" width="322.5" height="39.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist name - Collection Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUK-an-G8u">
+                                                                    <rect key="frame" x="0.0" y="23" width="337.5" height="41.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -72,9 +72,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="artistImageView" destination="K5i-3R-gZx" id="WLE-si-rsz"/>
-                                            <outlet property="artistNameLabel" destination="mWh-rB-WFo" id="You-7r-e88"/>
-                                            <outlet property="trackNameLabel" destination="dUK-an-G8u" id="e2J-zj-jro"/>
+                                            <outlet property="descriptionLabel" destination="dUK-an-G8u" id="0JR-NE-6gn"/>
+                                            <outlet property="titleLabel" destination="mWh-rB-WFo" id="Yhy-XH-gFw"/>
+                                            <outlet property="trackImageView" destination="K5i-3R-gZx" id="hdx-r1-7Ho"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

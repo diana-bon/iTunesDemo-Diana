@@ -10,6 +10,13 @@ import Foundation
 
 enum Error: Swift.Error
 {
-  case network(description: String)
+  case network
   case parsing
+  
+  var description: String {
+    switch self {
+    case .network: return "Network error"
+    case .parsing: return "Parsing error"
+    }
+  }
 }

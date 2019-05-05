@@ -19,6 +19,10 @@
 		320E43F5226CD98B0089AC54 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320E43F4226CD98B0089AC54 /* AuthenticationController.swift */; };
 		8082328B7510F74684FE8512 /* Pods_iTunesDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B728CD4300F862C5B93008 /* Pods_iTunesDemoUITests.framework */; };
 		81E176138150AD88333E39FE /* Pods_iTunesDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36E7EA0F2E9F44DB4B4188D /* Pods_iTunesDemo.framework */; };
+		937D362C227E2E5A00C63151 /* TrackListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D362B227E2E5A00C63151 /* TrackListAdapter.swift */; };
+		937D362E227E2F0300C63151 /* BaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D362D227E2F0300C63151 /* BaseAdapter.swift */; };
+		937D3630227E516800C63151 /* UIImageView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D362F227E516800C63151 /* UIImageView+extensions.swift */; };
+		937D3632227E5B6700C63151 /* Collection+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D3631227E5B6700C63151 /* Collection+extensions.swift */; };
 		938BB502227DD46700DEB4F5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB501227DD46700DEB4F5 /* Result.swift */; };
 		938BB504227DD46F00DEB4F5 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB503227DD46F00DEB4F5 /* Error.swift */; };
 		938BB506227DD52600DEB4F5 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB505227DD52600DEB4F5 /* Resource.swift */; };
@@ -71,6 +75,10 @@
 		320E43F4226CD98B0089AC54 /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		45F66EAED062D1331DFA36F4 /* Pods-iTunesDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesDemoUITests.release.xcconfig"; path = "Target Support Files/Pods-iTunesDemoUITests/Pods-iTunesDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		93646BFE02AC5C0AFB289D13 /* Pods-iTunesDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesDemoTests.release.xcconfig"; path = "Target Support Files/Pods-iTunesDemoTests/Pods-iTunesDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		937D362B227E2E5A00C63151 /* TrackListAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListAdapter.swift; sourceTree = "<group>"; };
+		937D362D227E2F0300C63151 /* BaseAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAdapter.swift; sourceTree = "<group>"; };
+		937D362F227E516800C63151 /* UIImageView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extensions.swift"; sourceTree = "<group>"; };
+		937D3631227E5B6700C63151 /* Collection+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+extensions.swift"; sourceTree = "<group>"; };
 		938BB501227DD46700DEB4F5 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		938BB503227DD46F00DEB4F5 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		938BB505227DD52600DEB4F5 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
@@ -187,6 +195,7 @@
 				938BB50A227DFF1500DEB4F5 /* UI Components */,
 				938BB507227DE46500DEB4F5 /* Model */,
 				93D41E1F227DCB01002022F0 /* TrackListFactory.swift */,
+				937D362B227E2E5A00C63151 /* TrackListAdapter.swift */,
 				93D41E21227DCB1E002022F0 /* TrackListController.swift */,
 				320E43C0226CBCB20089AC54 /* TrackListViewController.swift */,
 				93D41E23227DCB77002022F0 /* TrackListBoundaries.swift */,
@@ -222,6 +231,18 @@
 			path = ItunesDemo;
 			sourceTree = "<group>";
 		};
+		937D362A227E2E3600C63151 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				93D41E26227DCDC6002022F0 /* Network.swift */,
+				938BB505227DD52600DEB4F5 /* Resource.swift */,
+				938BB501227DD46700DEB4F5 /* Result.swift */,
+				938BB503227DD46F00DEB4F5 /* Error.swift */,
+				937D362D227E2F0300C63151 /* BaseAdapter.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		938BB507227DE46500DEB4F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				938BB50E227E0B2B00DEB4F5 /* String+extensions.swift */,
+				937D362F227E516800C63151 /* UIImageView+extensions.swift */,
+				937D3631227E5B6700C63151 /* Collection+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,11 +272,8 @@
 		93D41E25227DCDB2002022F0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				937D362A227E2E3600C63151 /* Network */,
 				938BB50D227E0B1500DEB4F5 /* Extensions */,
-				93D41E26227DCDC6002022F0 /* Network.swift */,
-				938BB505227DD52600DEB4F5 /* Resource.swift */,
-				938BB501227DD46700DEB4F5 /* Result.swift */,
-				938BB503227DD46F00DEB4F5 /* Error.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -503,12 +523,16 @@
 			files = (
 				938BB502227DD46700DEB4F5 /* Result.swift in Sources */,
 				320E43C1226CBCB20089AC54 /* TrackListViewController.swift in Sources */,
+				937D362E227E2F0300C63151 /* BaseAdapter.swift in Sources */,
 				93D41E24227DCB77002022F0 /* TrackListBoundaries.swift in Sources */,
 				938BB506227DD52600DEB4F5 /* Resource.swift in Sources */,
+				937D3630227E516800C63151 /* UIImageView+extensions.swift in Sources */,
 				93D41E27227DCDC6002022F0 /* Network.swift in Sources */,
 				320E43F5226CD98B0089AC54 /* AuthenticationController.swift in Sources */,
+				937D362C227E2E5A00C63151 /* TrackListAdapter.swift in Sources */,
 				320E43F1226CC9A60089AC54 /* AuthenticationViewController.swift in Sources */,
 				320E43BF226CBCB20089AC54 /* AppDelegate.swift in Sources */,
+				937D3632227E5B6700C63151 /* Collection+extensions.swift in Sources */,
 				938BB50F227E0B2B00DEB4F5 /* String+extensions.swift in Sources */,
 				93D41E20227DCB01002022F0 /* TrackListFactory.swift in Sources */,
 				938BB504227DD46F00DEB4F5 /* Error.swift in Sources */,

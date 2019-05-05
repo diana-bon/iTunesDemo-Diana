@@ -26,13 +26,7 @@ final class AuthenticationViewController: UIViewController
     
     private func checkAuthentication() -> Bool {
         guard let email = emailTextfield?.text, let password = passwordTextfield?.text else { return false }
-        if !email.isEmpty && !password.isEmpty {
-            return false
-        } else {
-            
-            
-            return true
-        }
+        return email.isEmpty || password.isEmpty
     }
     
     // MARK: - Navigation
