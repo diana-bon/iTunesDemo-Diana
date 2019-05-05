@@ -84,7 +84,14 @@ extension TrackListViewController: UITableViewDelegate
 // MARK: - Searchbar delegate
 extension TrackListViewController: UISearchBarDelegate
 {
-  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    controller?.findTrackList(with: searchText)
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    guard let text = searchBar.text else { return }
+    if text != "" {
+      controller?.findTrackList(with: text.lowercased())
+    }
+  }
+  
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.resignFirstResponder()
   }
 }

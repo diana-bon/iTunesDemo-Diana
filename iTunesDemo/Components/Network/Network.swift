@@ -33,12 +33,12 @@ extension Network: Networkable
 {
   func request(resource: Resource, completion: @escaping (Result<String, Error>) -> Void) {
     var request = resource.toRequest(baseURL: baseURL)
-    request.addValue("text/javascript", forHTTPHeaderField: "Content-Type")
     print("Requesting: \(String(describing: request.url?.absoluteString ?? ""))")
     session.dataTask(with: request) { (data, response, error) in
       switch (data, error) {
       case(let data?, _):
         if let jsonStr = String(data: data, encoding: .utf8) {
+          print("Response data: \(String(describing: jsonStr))")
           completion(Result<String, Error>.success(jsonStr))
         } else {
           completion(Result<String, Error>.failure(.parsing))
