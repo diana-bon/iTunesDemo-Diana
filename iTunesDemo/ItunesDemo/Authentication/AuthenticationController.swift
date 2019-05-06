@@ -7,9 +7,21 @@
 //
 
 import Foundation
-import Alamofire
+import Firebase
 
 class AuthenticationController
 {
+  var view: AuthenticationControllerOutput
+  
+  init(view: AuthenticationControllerOutput) {
+    self.view = view
+  }
+}
 
+extension AuthenticationController: AuthenticationControllerInput
+{
+  func login(login: String, password: String) {
+    // TODO: login with firebase
+    view.loginSuccess()
+  }
 }

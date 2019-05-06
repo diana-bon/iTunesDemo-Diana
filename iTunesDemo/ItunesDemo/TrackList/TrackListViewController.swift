@@ -26,6 +26,11 @@ class TrackListViewController: UIViewController
     super.viewDidLoad()
     controller = TrackListFactory.createTrackListModule(view: self)
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationController?.isNavigationBarHidden = false
+  }
 }
 
 // MARK: - Tracklist output
@@ -86,8 +91,14 @@ extension TrackListViewController: UISearchBarDelegate
 {
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     guard let text = searchBar.text else { return }
-    if text != "" {
+    if text != "" && text.count >= 3 {
       controller?.findTrackList(with: text.lowercased())
+    }
+  }
+  
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    if searchText != "" && searchText.count >= 3 {
+      controller?.findTrackList(with: searchText.lowercased())
     }
   }
   

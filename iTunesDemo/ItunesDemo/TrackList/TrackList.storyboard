@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TrackList-->
+        <!--Search tracks-->
         <scene sceneID="Jcq-8C-VWc">
             <objects>
                 <viewController id="hHK-wM-bqt" customClass="TrackListViewController" customModule="iTunesDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search tracks" translatesAutoresizingMaskIntoConstraints="NO" id="Uq9-St-ZiS">
+                            <searchBar contentMode="redraw" placeholder="Search by artist name" translatesAutoresizingMaskIntoConstraints="NO" id="Uq9-St-ZiS">
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -84,7 +84,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Uq9-St-ZiS" firstAttribute="leading" secondItem="Exs-KB-mhU" secondAttribute="leading" id="L1I-Ul-WZt"/>
                             <constraint firstItem="Uq9-St-ZiS" firstAttribute="trailing" secondItem="Exs-KB-mhU" secondAttribute="trailing" id="VFx-GG-Ml2"/>
@@ -96,7 +96,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Exs-KB-mhU"/>
                     </view>
-                    <navigationItem key="navigationItem" title="TrackList" id="GtM-Oo-yHv"/>
+                    <navigationItem key="navigationItem" title="Search tracks" id="GtM-Oo-yHv"/>
                     <connections>
                         <outlet property="searchBar" destination="Uq9-St-ZiS" id="Hso-8D-rlL"/>
                         <outlet property="tableView" destination="D8o-wX-oo8" id="B5X-w5-vl2"/>

@@ -11,7 +11,7 @@ import Foundation
 extension String
 {
   func toURLString() -> String {
-    let clean = self.replacingOccurrences(of: " ", with: "_")
+    let clean = self.replacingOccurrences(of: " ", with: "+")
     return clean
   }
 }

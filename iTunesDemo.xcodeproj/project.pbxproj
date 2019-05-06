@@ -23,6 +23,13 @@
 		937D362E227E2F0300C63151 /* BaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D362D227E2F0300C63151 /* BaseAdapter.swift */; };
 		937D3630227E516800C63151 /* UIImageView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D362F227E516800C63151 /* UIImageView+extensions.swift */; };
 		937D3632227E5B6700C63151 /* Collection+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D3631227E5B6700C63151 /* Collection+extensions.swift */; };
+		937D363422808D6200C63151 /* AuthenticationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D363322808D6200C63151 /* AuthenticationFactory.swift */; };
+		937D363622808D8E00C63151 /* AuthenticationBoundaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D363522808D8E00C63151 /* AuthenticationBoundaries.swift */; };
+		937D36392280919000C63151 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D36382280919000C63151 /* CreateAccountViewController.swift */; };
+		937D363B2280919D00C63151 /* CreateAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D363A2280919D00C63151 /* CreateAccountController.swift */; };
+		937D363D228091AB00C63151 /* CreateAccountBoundaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D363C228091AB00C63151 /* CreateAccountBoundaries.swift */; };
+		937D363F2280924E00C63151 /* CreateAccountFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D363E2280924E00C63151 /* CreateAccountFactory.swift */; };
+		937D36412280933C00C63151 /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937D36402280933C00C63151 /* CreateAccount.storyboard */; };
 		938BB502227DD46700DEB4F5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB501227DD46700DEB4F5 /* Result.swift */; };
 		938BB504227DD46F00DEB4F5 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB503227DD46F00DEB4F5 /* Error.swift */; };
 		938BB506227DD52600DEB4F5 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB505227DD52600DEB4F5 /* Resource.swift */; };
@@ -79,6 +86,13 @@
 		937D362D227E2F0300C63151 /* BaseAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAdapter.swift; sourceTree = "<group>"; };
 		937D362F227E516800C63151 /* UIImageView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+extensions.swift"; sourceTree = "<group>"; };
 		937D3631227E5B6700C63151 /* Collection+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+extensions.swift"; sourceTree = "<group>"; };
+		937D363322808D6200C63151 /* AuthenticationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFactory.swift; sourceTree = "<group>"; };
+		937D363522808D8E00C63151 /* AuthenticationBoundaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationBoundaries.swift; sourceTree = "<group>"; };
+		937D36382280919000C63151 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		937D363A2280919D00C63151 /* CreateAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountController.swift; sourceTree = "<group>"; };
+		937D363C228091AB00C63151 /* CreateAccountBoundaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountBoundaries.swift; sourceTree = "<group>"; };
+		937D363E2280924E00C63151 /* CreateAccountFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountFactory.swift; sourceTree = "<group>"; };
+		937D36402280933C00C63151 /* CreateAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAccount.storyboard; sourceTree = "<group>"; };
 		938BB501227DD46700DEB4F5 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		938BB503227DD46F00DEB4F5 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		938BB505227DD52600DEB4F5 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
@@ -218,6 +232,8 @@
 			children = (
 				320E43F0226CC9A60089AC54 /* AuthenticationViewController.swift */,
 				320E43F4226CD98B0089AC54 /* AuthenticationController.swift */,
+				937D363322808D6200C63151 /* AuthenticationFactory.swift */,
+				937D363522808D8E00C63151 /* AuthenticationBoundaries.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -225,6 +241,7 @@
 		320E43EF226CC9730089AC54 /* ItunesDemo */ = {
 			isa = PBXGroup;
 			children = (
+				937D36372280917200C63151 /* Signup */,
 				320E43EE226CC9530089AC54 /* Authentication */,
 				320E43EC226CC6F50089AC54 /* TrackList */,
 			);
@@ -241,6 +258,18 @@
 				937D362D227E2F0300C63151 /* BaseAdapter.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		937D36372280917200C63151 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				937D36382280919000C63151 /* CreateAccountViewController.swift */,
+				937D363A2280919D00C63151 /* CreateAccountController.swift */,
+				937D363C228091AB00C63151 /* CreateAccountBoundaries.swift */,
+				937D363E2280924E00C63151 /* CreateAccountFactory.swift */,
+				937D36402280933C00C63151 /* CreateAccount.storyboard */,
+			);
+			path = Signup;
 			sourceTree = "<group>";
 		};
 		938BB507227DE46500DEB4F5 /* Model */ = {
@@ -398,6 +427,7 @@
 			files = (
 				320E43F3226CD05A0089AC54 /* TrackList.storyboard in Resources */,
 				320E43C9226CBCB40089AC54 /* LaunchScreen.storyboard in Resources */,
+				937D36412280933C00C63151 /* CreateAccount.storyboard in Resources */,
 				320E43C6226CBCB40089AC54 /* Assets.xcassets in Resources */,
 				320E43C4226CBCB20089AC54 /* Main.storyboard in Resources */,
 			);
@@ -521,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937D36392280919000C63151 /* CreateAccountViewController.swift in Sources */,
 				938BB502227DD46700DEB4F5 /* Result.swift in Sources */,
 				320E43C1226CBCB20089AC54 /* TrackListViewController.swift in Sources */,
 				937D362E227E2F0300C63151 /* BaseAdapter.swift in Sources */,
@@ -531,13 +562,18 @@
 				320E43F5226CD98B0089AC54 /* AuthenticationController.swift in Sources */,
 				937D362C227E2E5A00C63151 /* TrackListAdapter.swift in Sources */,
 				320E43F1226CC9A60089AC54 /* AuthenticationViewController.swift in Sources */,
+				937D363B2280919D00C63151 /* CreateAccountController.swift in Sources */,
 				320E43BF226CBCB20089AC54 /* AppDelegate.swift in Sources */,
 				937D3632227E5B6700C63151 /* Collection+extensions.swift in Sources */,
+				937D363D228091AB00C63151 /* CreateAccountBoundaries.swift in Sources */,
 				938BB50F227E0B2B00DEB4F5 /* String+extensions.swift in Sources */,
 				93D41E20227DCB01002022F0 /* TrackListFactory.swift in Sources */,
 				938BB504227DD46F00DEB4F5 /* Error.swift in Sources */,
+				937D363422808D6200C63151 /* AuthenticationFactory.swift in Sources */,
 				93D41E22227DCB1E002022F0 /* TrackListController.swift in Sources */,
+				937D363622808D8E00C63151 /* AuthenticationBoundaries.swift in Sources */,
 				938BB509227DE47000DEB4F5 /* Tracklist.swift in Sources */,
+				937D363F2280924E00C63151 /* CreateAccountFactory.swift in Sources */,
 				938BB50C227DFF2400DEB4F5 /* TrackListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
