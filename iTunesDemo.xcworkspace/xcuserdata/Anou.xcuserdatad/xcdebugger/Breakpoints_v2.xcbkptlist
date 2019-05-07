@@ -10,43 +10,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iTunesDemo/Components/Firebase/FirebaseManager.swift"
-            timestampString = "578942523.788747"
+            timestampString = "578963841.816056"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "createAccount(login:password:completion:)"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "getFavouriteTracks()"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "iTunesDemo.FirebaseManager.createAccount(login: Swift.String, password: Swift.String, completion: (iTunesDemo.Result&lt;__C.FIRUser, Swift.Optional&lt;iTunesDemo.Error&gt;&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "iTunesDemo.FirebaseManager.getFavouriteTracks() -&gt; Swift.Array&lt;Swift.Int&gt;"
                   moduleName = "iTunesDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Anou/GitHub/Musics/iTunesDemo/iTunesDemo/Components/Firebase/FirebaseManager.swift"
-                  timestampString = "578942524.0362819"
+                  timestampString = "578963841.839309"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "49">
+                  startingLineNumber = "101"
+                  endingLineNumber = "101"
+                  offsetFromSymbolStart = "404">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in iTunesDemo.FirebaseManager.createAccount(login: Swift.String, password: Swift.String, completion: (iTunesDemo.Result&lt;__C.FIRUser, Swift.Optional&lt;iTunesDemo.Error&gt;&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in iTunesDemo.FirebaseManager.getFavouriteTracks() -&gt; Swift.Array&lt;Swift.Int&gt;"
                   moduleName = "iTunesDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Anou/GitHub/Musics/iTunesDemo/iTunesDemo/Components/Firebase/FirebaseManager.swift"
-                  timestampString = "578942524.039111"
+                  timestampString = "578963841.842685"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "65">
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "23">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iTunesDemo/ItunesDemo/Signup/CreateAccountController.swift"
-            timestampString = "578942523.78896"
+            filePath = "iTunesDemo/Components/Firebase/FirebaseManager.swift"
+            timestampString = "578963841.816155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "createAccount(login:password:)"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "getFavouriteTracks()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +73,93 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iTunesDemo/ItunesDemo/Authentication/AuthenticationController.swift"
-            timestampString = "578942523.78908"
+            filePath = "iTunesDemo/ItunesDemo/TrackList/TrackListViewController.swift"
+            timestampString = "578963841.816233"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "handleError(_:)"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "didFavouriteTrack(trackId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iTunesDemo/ItunesDemo/TrackList/UI Components/TrackListCell.swift"
+            timestampString = "578963841.816712"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "didTapFavouriteIcon()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iTunesDemo/Components/Firebase/FirebaseManager.swift"
+            timestampString = "578963841.8167779"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "saveFavouriteTrack(trackId:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iTunesDemo/ItunesDemo/TrackList/TrackListController.swift"
+            timestampString = "578963841.8168401"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "addFavouriteTrack(trackId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iTunesDemo/ItunesDemo/TrackList/TrackListViewController.swift"
+            timestampString = "578963841.8169"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "displayFavouriteTrackAdded(trackId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iTunesDemo/Components/Firebase/FirebaseManager.swift"
+            timestampString = "578963841.817222"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "saveFavouriteTrack(trackId:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

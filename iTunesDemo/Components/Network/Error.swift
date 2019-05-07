@@ -12,11 +12,13 @@ enum Error: Swift.Error
 {
   case network
   case parsing
+  case database
   
   var description: String {
     switch self {
     case .network: return "Network error"
     case .parsing: return "Parsing error"
+    case .database: return "Database error"
     }
   }
 }

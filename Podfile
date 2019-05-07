@@ -10,8 +10,7 @@ target 'iTunesDemo' do
 	pod 'Firebase'
 	pod 'Alamofire'
 	pod 'Firebase/Auth'
-  
-
+  pod 'Firebase/Database'
 
   target 'iTunesDemoTests' do
     inherit! :search_paths

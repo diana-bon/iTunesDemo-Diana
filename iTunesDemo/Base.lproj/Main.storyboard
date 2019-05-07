@@ -14,17 +14,27 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AuthenticationViewController" customModule="iTunesDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account created successfully" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JpM-lO-Ec7" userLabel="Account created successfully">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                <color key="backgroundColor" red="0.12956421000000001" green="0.67222377229999997" blue="0.099325723690000006" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="g6D-kv-m1u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ITUNES DEMO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugn-g0-MPB">
-                                <rect key="frame" x="20" y="138" width="374" height="48"/>
+                                <rect key="frame" x="20" y="50" width="374" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bgm-UM-EbR">
-                                <rect key="frame" x="20" y="206" width="374" height="150"/>
+                                <rect key="frame" x="20" y="118" width="374" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5P-2S-tZp">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -53,7 +63,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuM-vF-z54">
-                                <rect key="frame" x="185" y="376" width="44" height="30"/>
+                                <rect key="frame" x="185" y="288" width="44" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0nt-6N-Lhv"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="lB5-8E-Eqn"/>
@@ -64,7 +74,7 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter an email and password to login" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyr-Si-S3p">
-                                <rect key="frame" x="20" y="426" width="374" height="21"/>
+                                <rect key="frame" x="20" y="338" width="374" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="tQ4-kZ-OGI"/>
                                 </constraints>
@@ -73,14 +83,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xpg-m4-8R5">
-                                <rect key="frame" x="237" y="381" width="20" height="20"/>
+                                <rect key="frame" x="237" y="293" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="Ppc-ss-MwC"/>
                                     <constraint firstAttribute="height" constant="20" id="eGn-8J-NlI"/>
                                 </constraints>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0VF-sP-Anj">
-                                <rect key="frame" x="81.5" y="815" width="251" height="35"/>
+                                <rect key="frame" x="81.5" y="727" width="251" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ZW3-mw-QHs"/>
                                 </constraints>
@@ -99,11 +109,14 @@
                             <constraint firstItem="xpg-m4-8R5" firstAttribute="centerY" secondItem="yuM-vF-z54" secondAttribute="centerY" id="K1l-f1-HoC"/>
                             <constraint firstItem="bgm-UM-EbR" firstAttribute="top" secondItem="ugn-g0-MPB" secondAttribute="bottom" constant="20" id="KcS-1z-Wdr"/>
                             <constraint firstItem="yyr-Si-S3p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="NRj-4N-NyP"/>
+                            <constraint firstItem="JpM-lO-Ec7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OdB-Pt-dlc"/>
                             <constraint firstItem="yuM-vF-z54" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P3Q-RH-WCc"/>
                             <constraint firstItem="ugn-g0-MPB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="TEf-wW-R49"/>
                             <constraint firstItem="0VF-sP-Anj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TiH-4o-bjL"/>
                             <constraint firstItem="xpg-m4-8R5" firstAttribute="leading" secondItem="yuM-vF-z54" secondAttribute="trailing" constant="8" id="ZGN-E3-2IZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0VF-sP-Anj" secondAttribute="bottom" constant="12" id="aye-fD-d2Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JpM-lO-Ec7" secondAttribute="trailing" id="jJv-gj-41w"/>
+                            <constraint firstItem="JpM-lO-Ec7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="p2b-9i-iKs"/>
                             <constraint firstItem="yyr-Si-S3p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pwW-Nw-Osf"/>
                             <constraint firstItem="ugn-g0-MPB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="qWc-6v-jzt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ugn-g0-MPB" secondAttribute="trailing" constant="20" id="xcL-6M-09v"/>
@@ -114,6 +127,7 @@
                     <connections>
                         <outlet property="emailTextfield" destination="Aun-24-d2f" id="2qj-4n-UDx"/>
                         <outlet property="errorLabel" destination="yyr-Si-S3p" id="Pea-0G-g0l"/>
+                        <outlet property="heightConstraint" destination="g6D-kv-m1u" id="EaE-fv-AUt"/>
                         <outlet property="loadingIndicator" destination="xpg-m4-8R5" id="mju-dc-yBh"/>
                         <outlet property="loginButton" destination="yuM-vF-z54" id="TBk-wQ-7jf"/>
                         <outlet property="passwordTextfield" destination="9eC-pO-r4c" id="a9L-1u-Mno"/>
@@ -147,7 +161,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7be-fC-ezZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W6o-Hp-FL8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="W6o-Hp-FL8">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

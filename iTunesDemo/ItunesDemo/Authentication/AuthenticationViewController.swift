@@ -17,8 +17,9 @@ final class AuthenticationViewController: UIViewController
     @IBOutlet private weak var loginButton: UIButton?
     @IBOutlet private weak var errorLabel: UILabel?
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView?
+    @IBOutlet private weak var heightConstraint: NSLayoutConstraint?
   
-    var controller: AuthenticationControllerInput?
+  var controller: AuthenticationControllerInput?
   
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -32,6 +33,7 @@ final class AuthenticationViewController: UIViewController
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
       self.navigationController?.isNavigationBarHidden = true
+      self.navigationItem.hidesBackButton = false
     }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,6 +79,7 @@ extension AuthenticationViewController: AuthenticationControllerOutput
   
   func displayError(_ message: String) {
     self.loadingIndicator?.stopAnimating()
+    self.errorLabel?.isHidden = false
     self.errorLabel?.text = message
   }
 }
@@ -85,5 +88,13 @@ extension AuthenticationViewController: CreateAccountDelegate
 {
   func createAcountDidFinish(login: String?) {
     self.emailTextfield?.text = login
+    
+    UIView.animate(withDuration: 0.5) {
+      self.heightConstraint?.constant = 35
+      
+      let timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+        self.heightConstraint?.constant = 0
+      }
+    }
   }
 }

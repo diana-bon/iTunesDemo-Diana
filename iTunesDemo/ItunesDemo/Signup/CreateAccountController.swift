@@ -12,9 +12,11 @@ import Firebase
 class CreateAccountController
 {
   var view: CreateAccountControllerOutput
+  var database: DatabaseAccess
   
-  init(view: CreateAccountControllerOutput) {
+  init(view: CreateAccountControllerOutput, database: DatabaseAccess) {
     self.view = view
+    self.database = database
   }
   
   enum ErrorMessage
@@ -35,7 +37,7 @@ extension CreateAccountController: CreateAccountControllerInput
 {
   func createAccount(login: String, password: String) {
     // Create account with firebase
-    FirebaseManager.shared.createAccount(login: login, password: password) { [weak self] result in
+    database.createAccount(login: login, password: password) { [weak self] result in
       guard let self = self else { return }
       switch result {
       case .failure(let error):

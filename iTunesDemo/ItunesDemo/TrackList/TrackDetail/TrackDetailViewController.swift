@@ -24,6 +24,11 @@ class TrackDetailViewController: UIViewController
     self.setup(viewModel: track)
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationItem.hidesBackButton = false
+  }
+  
   private func setup(viewModel: TrackModel?) {
     trackNameLabel?.text = viewModel?.trackName
     artistNameLabel?.text = viewModel?.artistName

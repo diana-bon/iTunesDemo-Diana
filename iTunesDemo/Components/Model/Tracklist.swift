@@ -17,6 +17,8 @@ struct TrackModel: Codable
   let collectionName: String?
   let artworkUrl100: String?
   
+  var isFavourite: Bool = false
+  
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     artistId = try container.decodeIfPresent(Int.self, forKey: .artistId)
@@ -32,6 +34,11 @@ struct TrackListModel: Codable
 {
   let resultCount: Int
   var results: [TrackModel] = []
+  
+  init(count: Int, tracks: [TrackModel]) {
+    self.resultCount = count
+    self.results = tracks
+  }
   
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)

@@ -31,6 +31,7 @@ class TrackListViewController: UIViewController
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.navigationController?.isNavigationBarHidden = false
+    self.navigationItem.hidesBackButton = true
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,6 +41,13 @@ class TrackListViewController: UIViewController
       }
     }
   }
+  
+  @IBAction func didTapLogout(_ sender: Any) {
+    controller?.logout()
+    self.navigationController?.popViewController(animated: true)
+  }
+  
+  
 }
 
 // MARK: - Tracklist output
@@ -56,6 +64,13 @@ extension TrackListViewController: TrackListControllerOutput
   
   func displayError(message: String) {
     print(message)
+  }
+  
+  func displayFavouriteTrackAdded(trackId: Int) {
+    guard let text = searchBar?.text else { return }
+    if text != "" && text.count >= 3 {
+      controller?.findTrackList(with: text.lowercased())
+    }
   }
 }
 
@@ -74,11 +89,7 @@ extension TrackListViewController: UITableViewDataSource
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "TrackListCell") as? TrackListCell else { return UITableViewCell() }
     
     let model = trackList?[safe: indexPath.row]
-    
-    cell.titleStr = model?.trackName ?? "-"
-    let description = "\(model?.artistName ?? "-") - \(model?.collectionName ?? "-")"
-    cell.descriptionStr = description
-    cell.trackImage = model?.artworkUrl100
+    cell.setup(model: model)
 
     return cell
   }
@@ -114,5 +125,12 @@ extension TrackListViewController: UISearchBarDelegate
   
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
     searchBar.resignFirstResponder()
+  }
+}
+
+extension TrackListViewController: TrackListCellDelegate
+{
+  func didFavouriteTrack(trackId: Int) {
+    controller?.addFavouriteTrack(trackId: trackId)
   }
 }

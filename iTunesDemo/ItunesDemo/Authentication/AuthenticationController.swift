@@ -11,9 +11,11 @@ import Foundation
 class AuthenticationController
 {
   var view: AuthenticationControllerOutput
+  var database: DatabaseAccess
   
-  init(view: AuthenticationControllerOutput) {
+  init(view: AuthenticationControllerOutput, database: DatabaseAccess) {
     self.view = view
+    self.database = database
   }
   
   enum ErrorMessage
@@ -26,6 +28,7 @@ class AuthenticationController
   }
   
   private func handleSuccess() {
+    database.getFavouriteTracks()
     self.view.loginSuccess()
   }
 }
@@ -33,7 +36,7 @@ class AuthenticationController
 extension AuthenticationController: AuthenticationControllerInput
 {
   func login(login: String, password: String) {
-    FirebaseManager.shared.login(login: login, password: password) { [weak self] result in
+    database.login(login: login, password: password) { [weak self] result in
       guard let self = self else { return }
       switch result {
       case .failure(let error):

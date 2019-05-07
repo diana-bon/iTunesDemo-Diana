@@ -11,10 +11,13 @@ import Foundation
 protocol TrackListControllerInput
 {
   func findTrackList(with text: String)
+  func logout()
+  func addFavouriteTrack(trackId: Int)
 }
 
 protocol TrackListControllerOutput
 {
+  func displayFavouriteTrackAdded(trackId: Int)
   func displayTrackList(trackModel: TrackListModel)
   func displayError(message: String)
 }
