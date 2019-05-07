@@ -15,6 +15,6 @@ protocol CreateAccountControllerInput
 
 protocol CreateAccountControllerOutput
 {
-  func createAccountSuccess()
+  func createAccountSuccess(email: String?)
   func displayError(_ message: String)
 }

@@ -15,6 +15,7 @@ class TrackListViewController: UIViewController
   
   var trackList: [TrackModel]?
   var trackCount: Int?
+  var selectedTrack: TrackModel?
   
   // MARK: - Outlets
   @IBOutlet private weak var searchBar: UISearchBar?
@@ -30,6 +31,14 @@ class TrackListViewController: UIViewController
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.navigationController?.isNavigationBarHidden = false
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showTrackDetail" {
+      if let trackDetail = segue.destination as? TrackDetailViewController, let track = selectedTrack {
+        trackDetail.track = track
+      }
+    }
   }
 }
 
@@ -78,7 +87,8 @@ extension TrackListViewController: UITableViewDataSource
 extension TrackListViewController: UITableViewDelegate
 {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // TODO
+    selectedTrack = trackList?[safe: indexPath.row]
+    performSegue(withIdentifier: "showTrackDetail", sender: nil)
   }
   
   func scrollViewDidScroll(_ scrollView: UIScrollView) {

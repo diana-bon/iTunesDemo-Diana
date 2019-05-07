@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class CreateAccountController
 {
@@ -15,12 +16,33 @@ class CreateAccountController
   init(view: CreateAccountControllerOutput) {
     self.view = view
   }
+  
+  enum ErrorMessage
+  {
+    static let createAccount = "The account couldn't be created."
+  }
+  
+  private func handleError(_ error: Error?) {
+    self.view.displayError(ErrorMessage.createAccount)
+  }
+  
+  private func handleSuccess(user: User) {
+    self.view.createAccountSuccess(email: user.email)
+  }
 }
 
 extension CreateAccountController: CreateAccountControllerInput
 {
   func createAccount(login: String, password: String) {
-    // TODO: Create account with firebase
-    view.createAccountSuccess()
+    // Create account with firebase
+    FirebaseManager.shared.createAccount(login: login, password: password) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .failure(let error):
+        self.handleError(error)
+      case .success(let user):
+        self.handleSuccess(user: user)
+      }
+    }
   }
 }

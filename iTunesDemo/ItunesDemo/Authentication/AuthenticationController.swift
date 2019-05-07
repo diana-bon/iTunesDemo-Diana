@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Firebase
 
 class AuthenticationController
 {
@@ -16,12 +15,32 @@ class AuthenticationController
   init(view: AuthenticationControllerOutput) {
     self.view = view
   }
+  
+  enum ErrorMessage
+  {
+    static let login = "The user couldn't log in with firebase."
+  }
+  
+  private func handleError(_ error: Error?) {
+    self.view.displayError(ErrorMessage.login)
+  }
+  
+  private func handleSuccess() {
+    self.view.loginSuccess()
+  }
 }
 
 extension AuthenticationController: AuthenticationControllerInput
 {
   func login(login: String, password: String) {
-    // TODO: login with firebase
-    view.loginSuccess()
+    FirebaseManager.shared.login(login: login, password: password) { [weak self] result in
+      guard let self = self else { return }
+      switch result {
+      case .failure(let error):
+        self.handleError(error)
+      case .success:
+        self.handleSuccess()
+      }
+    }
   }
 }

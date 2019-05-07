@@ -76,7 +76,8 @@ extension AuthenticationViewController: AuthenticationControllerOutput
   }
   
   func displayError(_ message: String) {
-    print(message)
+    self.loadingIndicator?.stopAnimating()
+    self.errorLabel?.text = message
   }
 }
 

@@ -100,11 +100,69 @@
                     <connections>
                         <outlet property="searchBar" destination="Uq9-St-ZiS" id="Hso-8D-rlL"/>
                         <outlet property="tableView" destination="D8o-wX-oo8" id="B5X-w5-vl2"/>
+                        <segue destination="i4s-p2-p69" kind="show" identifier="showTrackDetail" id="NDJ-6l-iwh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJj-Lg-xNE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1163.768115942029" y="109.82142857142857"/>
+        </scene>
+        <!--Track Detail View Controller-->
+        <scene sceneID="ktC-73-heo">
+            <objects>
+                <viewController id="i4s-p2-p69" customClass="TrackDetailViewController" customModule="iTunesDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UHD-5q-kQi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="tKO-xe-Tjd">
+                                <rect key="frame" x="0.0" y="88" width="414" height="395"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HIU-2K-JJ5">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="bYO-Xz-0Cm"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TrackName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRI-eF-EhA">
+                                        <rect key="frame" x="0.0" y="312" width="414" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CollectionName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2N-4y-dmJ" userLabel="CollectionName">
+                                        <rect key="frame" x="0.0" y="344.5" width="414" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ArtistName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME9-Ks-0dR" userLabel="ArtistName">
+                                        <rect key="frame" x="0.0" y="374.5" width="414" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tKO-xe-Tjd" firstAttribute="top" secondItem="lpt-Bj-Lt2" secondAttribute="top" id="3sF-2G-1v8"/>
+                            <constraint firstItem="tKO-xe-Tjd" firstAttribute="leading" secondItem="lpt-Bj-Lt2" secondAttribute="leading" id="M7Y-JE-cT5"/>
+                            <constraint firstAttribute="trailing" secondItem="tKO-xe-Tjd" secondAttribute="trailing" id="w6m-qt-acT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lpt-Bj-Lt2"/>
+                    </view>
+                    <connections>
+                        <outlet property="artistNameLabel" destination="ME9-Ks-0dR" id="LfU-z2-C2e"/>
+                        <outlet property="collectionNameLabel" destination="a2N-4y-dmJ" id="FmY-59-PCr"/>
+                        <outlet property="trackImageView" destination="HIU-2K-JJ5" id="Cao-UK-R5k"/>
+                        <outlet property="trackNameLabel" destination="zRI-eF-EhA" id="2iI-7F-ynz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0QL-NV-iRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2157.971014492754" y="109.82142857142857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yG0-6i-Iep">

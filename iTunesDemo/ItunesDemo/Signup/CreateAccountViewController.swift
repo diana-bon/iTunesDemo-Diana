@@ -58,9 +58,9 @@ extension CreateAccountViewController
 
 extension CreateAccountViewController: CreateAccountControllerOutput
 {
-  func createAccountSuccess() {
+  func createAccountSuccess(email: String?) {
     self.dismiss(animated: true)
-    delegate?.createAcountDidFinish(login: loginTextfield.text)
+    delegate?.createAcountDidFinish(login: email)
   }
   
   func displayError(_ message: String) {

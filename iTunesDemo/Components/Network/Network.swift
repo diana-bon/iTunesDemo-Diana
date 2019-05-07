@@ -10,8 +10,10 @@ import Foundation
 
 protocol Networkable
 {
-  func request(resource: Resource, completion: @escaping (Result<String, Error>) -> Void)
+  func request(resource: Resource, completion: @escaping (NetworkResult) -> Void)
 }
+
+typealias NetworkResult = Result<String, Error>
 
 final class Network
 {
@@ -31,20 +33,21 @@ final class Network
 
 extension Network: Networkable
 {
-  func request(resource: Resource, completion: @escaping (Result<String, Error>) -> Void) {
+  func request(resource: Resource, completion: @escaping (NetworkResult) -> Void) {
     var request = resource.toRequest(baseURL: baseURL)
     print("Requesting: \(String(describing: request.url?.absoluteString ?? ""))")
+    
     session.dataTask(with: request) { (data, response, error) in
       switch (data, error) {
       case(let data?, _):
         if let jsonStr = String(data: data, encoding: .utf8) {
           print("Response data: \(String(describing: jsonStr))")
-          completion(Result<String, Error>.success(jsonStr))
+          completion(.success(jsonStr))
         } else {
-          completion(Result<String, Error>.failure(.parsing))
+          completion(.failure(.parsing))
         }
       case(_, _):
-          completion(Result<String, Error>.failure(.network))
+          completion(.failure(.network))
       }
     }.resume()
   }
