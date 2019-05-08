@@ -12,8 +12,7 @@ enum TrackListFactory
 {
   static func createTrackListModule(view: TrackListControllerOutput) -> TrackListControllerInput {
     let adapter = TrackListAdapter()
-    let database = FirebaseManager()
-    let controller = TrackListController(adapter: adapter, view: view, database: database)
+    let controller = TrackListController(adapter: adapter, view: view)
     return controller
   }
 }

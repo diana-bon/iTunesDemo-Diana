@@ -11,8 +11,7 @@ import Foundation
 enum CreateAccountFactory
 {
   static func createAccountModule(view: CreateAccountControllerOutput) -> CreateAccountControllerInput {
-    let database = FirebaseManager()
-    let controller = CreateAccountController(view: view, database: database)
+    let controller = CreateAccountController(view: view)
     return controller
   }
 }

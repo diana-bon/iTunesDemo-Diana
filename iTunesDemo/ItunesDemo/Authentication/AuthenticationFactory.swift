@@ -11,8 +11,7 @@ import Foundation
 enum AuthenticationFactory
 {
   static func createAuthModule(view: AuthenticationControllerOutput) -> AuthenticationControllerInput {
-    let database = FirebaseManager()
-    let controller = AuthenticationController(view: view, database: database)
+    let controller = AuthenticationController(view: view)
     return controller
   }
 }

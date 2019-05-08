@@ -8,21 +8,19 @@
 
 import Foundation
 
-class TrackListController
+class TrackListController: DatabaseInjector
 {
   var view: TrackListControllerOutput
   var adapter: TracklistAdapting
-  var database: DatabaseAccess
   
   enum ErrorMessage
   {
     static var common = "An error occured."
   }
   
-  init(adapter: TracklistAdapting, view: TrackListControllerOutput, database: DatabaseAccess) {
+  init(adapter: TracklistAdapting, view: TrackListControllerOutput) {
     self.view = view
     self.adapter = adapter
-    self.database = database
   }
   
   private func handleError(_ error: Error?) {
@@ -30,37 +28,56 @@ class TrackListController
   }
   
   private func handleTrackListSuccess(_ trackList: TrackListModel) {
-    let favTracks = database.getFavouriteTracks()
+    let favTracks = database.favouriteTracks
+    
     var tracks = trackList.results
     
-    favTracks.forEach({ trackId in
+    favTracks.forEach({ favTrack in
       tracks = tracks.map { item in
         var trackItem = item
-        if trackItem.trackId == trackId {
+        if trackItem.trackId == favTrack.trackId {
           trackItem.isFavourite = true
         }
         return trackItem
       }
     })
     
+    adapter.trackList?.results = tracks
     let updatedTrackList = TrackListModel(count: trackList.resultCount, tracks: tracks)
     view.displayTrackList(trackModel: updatedTrackList)
   }
   
-  private func handleAddFavouriteSuccess(trackId: Int) {
-    view.displayFavouriteTrackAdded(trackId: trackId)
+  private func handleToggleFavouriteSuccess(trackId: Int) {
+    view.displayFavouriteTrackToggled(trackId: trackId)
   }
 }
 
 extension TrackListController: TrackListControllerInput
 {
-  func addFavouriteTrack(trackId: Int) {
-    database.saveFavouriteTrack(trackId: trackId) { [weak self] result in
-      switch result {
-      case .failure(let error):
-        self?.handleError(error)
-      case .success:
-        self?.handleAddFavouriteSuccess(trackId: trackId)
+  func getFavouriteTracks() {
+    database.getFavouriteTracks()
+  }
+  
+  func toggleFavouriteTrack(trackId: Int) {
+    guard let track = adapter.trackList?.results.filter({ $0.trackId == trackId }).first else { return }
+    
+    if track.isFavourite {
+      database.removeFavouriteTrack(trackId: trackId) { [weak self] result in
+        switch result {
+        case .failure(let error):
+          self?.handleError(error)
+        case .success:
+          self?.handleToggleFavouriteSuccess(trackId: trackId)
+        }
+      }
+    } else {
+      database.saveFavouriteTrack(trackId: trackId) { [weak self] result in
+        switch result {
+        case .failure(let error):
+          self?.handleError(error)
+        case .success:
+          self?.handleToggleFavouriteSuccess(trackId: trackId)
+        }
       }
     }
   }

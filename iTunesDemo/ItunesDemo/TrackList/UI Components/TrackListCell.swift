@@ -52,7 +52,6 @@ class TrackListCell: UITableViewCell
   }
   
   private func addFavouriteGesture() {
-    //
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapFavouriteIcon))
     favouriteIconView?.addGestureRecognizer(tapGesture)
   }

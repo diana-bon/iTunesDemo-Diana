@@ -9,14 +9,12 @@
 import Foundation
 import Firebase
 
-class CreateAccountController
+class CreateAccountController: DatabaseInjector
 {
   var view: CreateAccountControllerOutput
-  var database: DatabaseAccess
   
-  init(view: CreateAccountControllerOutput, database: DatabaseAccess) {
+  init(view: CreateAccountControllerOutput) {
     self.view = view
-    self.database = database
   }
   
   enum ErrorMessage

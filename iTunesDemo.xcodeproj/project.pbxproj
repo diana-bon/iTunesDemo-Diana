@@ -33,6 +33,7 @@
 		937D36432281E4D400C63151 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 937D36422281E4D400C63151 /* GoogleService-Info.plist */; };
 		937D36462281E53100C63151 /* TrackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D36452281E53100C63151 /* TrackDetailViewController.swift */; };
 		937D364B2281EBAF00C63151 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D364A2281EBAF00C63151 /* FirebaseManager.swift */; };
+		937D36512283685700C63151 /* FavouriteTrackItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937D36502283685700C63151 /* FavouriteTrackItem.swift */; };
 		938BB502227DD46700DEB4F5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB501227DD46700DEB4F5 /* Result.swift */; };
 		938BB504227DD46F00DEB4F5 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB503227DD46F00DEB4F5 /* Error.swift */; };
 		938BB506227DD52600DEB4F5 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938BB505227DD52600DEB4F5 /* Resource.swift */; };
@@ -100,6 +101,7 @@
 		937D36452281E53100C63151 /* TrackDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailViewController.swift; sourceTree = "<group>"; };
 		937D36482281EA8F00C63151 /* iTunesDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTunesDemo.entitlements; sourceTree = "<group>"; };
 		937D364A2281EBAF00C63151 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		937D36502283685700C63151 /* FavouriteTrackItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTrackItem.swift; sourceTree = "<group>"; };
 		938BB501227DD46700DEB4F5 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		938BB503227DD46F00DEB4F5 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		938BB505227DD52600DEB4F5 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				937D364A2281EBAF00C63151 /* FirebaseManager.swift */,
+				937D36502283685700C63151 /* FavouriteTrackItem.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				937D363D228091AB00C63151 /* CreateAccountBoundaries.swift in Sources */,
 				938BB50F227E0B2B00DEB4F5 /* String+extensions.swift in Sources */,
 				93D41E20227DCB01002022F0 /* TrackListFactory.swift in Sources */,
+				937D36512283685700C63151 /* FavouriteTrackItem.swift in Sources */,
 				938BB504227DD46F00DEB4F5 /* Error.swift in Sources */,
 				937D363422808D6200C63151 /* AuthenticationFactory.swift in Sources */,
 				93D41E22227DCB1E002022F0 /* TrackListController.swift in Sources */,

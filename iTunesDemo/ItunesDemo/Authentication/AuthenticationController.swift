@@ -8,14 +8,12 @@
 
 import Foundation
 
-class AuthenticationController
+class AuthenticationController: DatabaseInjector
 {
   var view: AuthenticationControllerOutput
-  var database: DatabaseAccess
   
-  init(view: AuthenticationControllerOutput, database: DatabaseAccess) {
+  init(view: AuthenticationControllerOutput) {
     self.view = view
-    self.database = database
   }
   
   enum ErrorMessage
@@ -28,7 +26,6 @@ class AuthenticationController
   }
   
   private func handleSuccess() {
-    database.getFavouriteTracks()
     self.view.loginSuccess()
   }
 }

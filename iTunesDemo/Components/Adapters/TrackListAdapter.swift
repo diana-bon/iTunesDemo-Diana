@@ -10,6 +10,8 @@ import Foundation
 
 class TrackListAdapter: BaseAdapter
 {
+  var trackList: TrackListModel?
+  
   enum Path
   {
     case trackList
@@ -39,6 +41,7 @@ extension TrackListAdapter: TracklistAdapting
       case .success(let data):
         let decoder = JSONDecoder()
         if let jsonData = data.data(using: .utf8), let trackList = try? decoder.decode(TrackListModel.self, from: jsonData) {
+          self.trackList = trackList
           completion(.success(trackList))
         } else {
           completion(.failure(.parsing))

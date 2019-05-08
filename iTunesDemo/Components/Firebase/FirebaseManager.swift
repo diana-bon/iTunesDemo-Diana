@@ -11,23 +11,39 @@ import Firebase
 import FirebaseDatabase
 
 typealias DatabaseResult = (Result<User, Error?>) -> Void
+typealias TracksResult = (Result<[Int]?, Error?>) -> Void
 
 protocol DatabaseAccess
 {
   func createAccount(login: String, password: String, completion: @escaping DatabaseResult)
   func login(login: String, password: String, completion: @escaping DatabaseResult)
   func logout()
-  func saveFavouriteTrack(trackId: Int, completion: DatabaseResult)
-  func getFavouriteTracks() -> [Int]
+  func saveFavouriteTrack(trackId: Int, completion: @escaping TracksResult)
+  func removeFavouriteTrack(trackId: Int, completion: @escaping TracksResult)
+  func getFavouriteTracks()
   
-  var favouriteTracks: [Int]? { get set }
+  var favouriteTracks: [FavouriteTrackItem] { get set }
 }
 
-class FirebaseManager: DatabaseAccess
+protocol DatabaseInjector
+{
+  var database: DatabaseAccess { get }
+}
+
+extension DatabaseInjector
+{
+  var database: DatabaseAccess {
+    return sharedFirebaseManager
+  }
+}
+
+fileprivate let sharedFirebaseManager = FirebaseManager()
+
+final class FirebaseManager: DatabaseAccess
 {
   let ref = Database.database().reference()
   
-  var favouriteTracks: [Int]?
+  var favouriteTracks: [FavouriteTrackItem] = []
   
   enum FirebaseKeys
   {
@@ -75,34 +91,67 @@ class FirebaseManager: DatabaseAccess
   func logout() {
     do {
       self.currentUser = nil
+      self.favouriteTracks = []
       try Auth.auth().signOut()
     } catch let err {
       // TODO: show error if logout fail
     }
   }
   
-  func saveFavouriteTrack(trackId: Int, completion: DatabaseResult) {
+  func saveFavouriteTrack(trackId: Int, completion: @escaping TracksResult) {
     guard let user = self.currentUser else {
       completion(.failure(.database))
       return
     }
     
     let favRef = self.ref.child(FirebaseKeys.favouriteTracks)
-    let userRef = favRef.child(user.providerID)
-    userRef.setValue(trackId)
-    completion(.success(user))
+    let userRef = favRef.child(user.uid)
+    let favItem = FavouriteTrackItem(trackId: trackId)
+    
+    userRef.childByAutoId().setValue(favItem.toAnyObject())
+    self.favouriteTracks.append(favItem)
+    completion(.success([trackId]))
   }
   
-  @discardableResult
-  func getFavouriteTracks() -> [Int] {
-    guard let user = currentUser else { return [] }
-    let favRef = self.ref.child(FirebaseKeys.favouriteTracks)
-    let userRef = favRef.child(user.providerID)
-    userRef.observe(.value) { snapshot in
-      let value = snapshot.value as? [String: Any]
+  func removeFavouriteTrack(trackId: Int, completion: @escaping TracksResult) {
+    guard let user = self.currentUser else {
+      completion(.failure(.database))
+      return
     }
     
-    return []
+    let favRef = self.ref.child(FirebaseKeys.favouriteTracks)
+    let userRef = favRef.child(user.uid)
+    
+    userRef.observe(.value) { [weak self] snapshot in
+      guard let self = self else { return }
+      for child in snapshot.children {
+        guard let data = child as? DataSnapshot, let dict = data.value as? [String: Any] else { return }
+        if let favTrackId = dict["trackId"] as? Int {
+          if favTrackId == trackId {
+            userRef.child(data.key).removeValue()
+            let filter = self.favouriteTracks.filter({ $0.trackId != trackId })
+            self.favouriteTracks = filter
+            completion(.success([trackId]))
+          }
+        }
+      }
+    }
+  }
+  
+  func getFavouriteTracks() {
+    guard let user = currentUser else { return }
+    let favRef = self.ref.child(FirebaseKeys.favouriteTracks)
+    let userRef = favRef.child(user.uid)
+    
+    userRef.observe(.value) { [weak self] snapshot in
+      for child in snapshot.children {
+        guard let data = child as? DataSnapshot, let dict = data.value as? [String: Any] else { return }
+        if let trackId = dict["trackId"] as? Int {
+          let favTrack = FavouriteTrackItem(trackId: trackId)
+          self?.favouriteTracks.append(favTrack)
+        }
+      }
+    }
   }
 }
 

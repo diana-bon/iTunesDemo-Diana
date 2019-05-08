@@ -26,6 +26,7 @@ class TrackListViewController: UIViewController
   override func viewDidLoad() {
     super.viewDidLoad()
     controller = TrackListFactory.createTrackListModule(view: self)
+    controller?.getFavouriteTracks()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -46,8 +47,6 @@ class TrackListViewController: UIViewController
     controller?.logout()
     self.navigationController?.popViewController(animated: true)
   }
-  
-  
 }
 
 // MARK: - Tracklist output
@@ -66,11 +65,9 @@ extension TrackListViewController: TrackListControllerOutput
     print(message)
   }
   
-  func displayFavouriteTrackAdded(trackId: Int) {
+  func displayFavouriteTrackToggled(trackId: Int) {
     guard let text = searchBar?.text else { return }
-    if text != "" && text.count >= 3 {
-      controller?.findTrackList(with: text.lowercased())
-    }
+    controller?.findTrackList(with: text.lowercased())
   }
 }
 
@@ -90,7 +87,8 @@ extension TrackListViewController: UITableViewDataSource
     
     let model = trackList?[safe: indexPath.row]
     cell.setup(model: model)
-
+    cell.delegate = self
+    
     return cell
   }
 }
@@ -131,6 +129,6 @@ extension TrackListViewController: UISearchBarDelegate
 extension TrackListViewController: TrackListCellDelegate
 {
   func didFavouriteTrack(trackId: Int) {
-    controller?.addFavouriteTrack(trackId: trackId)
+    controller?.toggleFavouriteTrack(trackId: trackId)
   }
 }
