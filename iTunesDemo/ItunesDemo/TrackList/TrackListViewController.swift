@@ -25,6 +25,7 @@ class TrackListViewController: UIViewController
   // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+
     controller = TrackListFactory.createTrackListModule(view: self)
     controller?.getFavouriteTracks()
   }

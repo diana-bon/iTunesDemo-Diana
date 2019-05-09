@@ -2,7 +2,7 @@
 //  UIImageView+extensions.swift
 //  iTunesDemo
 //
-//  Created by Anou on 05/05/2019.
+//  Created by Diana Alejandra Bonilla Granados on 05/05/2019.
 //  Copyright © 2019 Diana Bonilla. All rights reserved.
 //
 

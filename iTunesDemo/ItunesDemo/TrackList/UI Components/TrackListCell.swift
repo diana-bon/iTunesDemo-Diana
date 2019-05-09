@@ -2,7 +2,7 @@
 //  TrackListCell.swift
 //  iTunesDemo
 //
-//  Created by Anou on 04/05/2019.
+//  Created by Diana Alejandra Bonilla Granados on 04/05/2019.
 //  Copyright © 2019 Diana Bonilla. All rights reserved.
 //
 
@@ -51,7 +51,7 @@ class TrackListCell: UITableViewCell
     addFavouriteGesture()
   }
   
-  private func addFavouriteGesture() {
+    private func addFavouriteGesture() {
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapFavouriteIcon))
     favouriteIconView?.addGestureRecognizer(tapGesture)
   }

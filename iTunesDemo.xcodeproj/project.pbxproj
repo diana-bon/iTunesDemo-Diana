@@ -186,8 +186,8 @@
 			children = (
 				937D36482281EA8F00C63151 /* iTunesDemo.entitlements */,
 				320E43BE226CBCB20089AC54 /* AppDelegate.swift */,
-				320E43C2226CBCB20089AC54 /* Main.storyboard */,
 				320E43CA226CBCB40089AC54 /* Info.plist */,
+				320E43C2226CBCB20089AC54 /* Main.storyboard */,
 				320E43EF226CC9730089AC54 /* ItunesDemo */,
 				320E43ED226CC7130089AC54 /* Resources */,
 				93D41E25227DCDB2002022F0 /* Components */,
@@ -802,15 +802,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iTunesDemo/iTunesDemo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZL2W2A5H89;
+				DEVELOPMENT_TEAM = 3GKA82FV29;
 				INFOPLIST_FILE = iTunesDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = iTunesDemo.dianabonilla.firebase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DianaBonilla.iTunesDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -822,15 +824,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iTunesDemo/iTunesDemo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZL2W2A5H89;
+				DEVELOPMENT_TEAM = 3GKA82FV29;
 				INFOPLIST_FILE = iTunesDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = iTunesDemo.dianabonilla.firebase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DianaBonilla.iTunesDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

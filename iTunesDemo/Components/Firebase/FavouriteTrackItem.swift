@@ -2,7 +2,7 @@
 //  FavouriteTrackItem.swift
 //  iTunesDemo
 //
-//  Created by Anou on 08/05/2019.
+//  Created by Diana Alejandra Bonilla Granados on 08/05/2019.
 //  Copyright © 2019 Diana Bonilla. All rights reserved.
 //
 
